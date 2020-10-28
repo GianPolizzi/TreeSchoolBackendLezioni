@@ -77,28 +77,27 @@ public class Riparazione extends DittaRiparazioni{
         }
     }
 
-    public void controllaPrioritaMax(){
-        outer : for(int riparazione=0; riparazione<tabellaRiparazioni.length; riparazione++){
-            for(int dato=0; dato<tabellaRiparazioni[riparazione].length; dato++){
-                if(tabellaRiparazioni[riparazione][2] == "1"){
-                    System.out.print(tabellaRiparazioni[riparazione][0]+ " ");
-                    System.out.print(tabellaRiparazioni[riparazione][1]+ " ");
-                    continue outer;
-                }
-                else if(tabellaRiparazioni[riparazione][2] == "2"){
-                    System.out.print(tabellaRiparazioni[riparazione][0]+ " ");
-                    System.out.print(tabellaRiparazioni[riparazione][1]+ " ");
-                    continue outer;
-                }
-                else{
-                    System.out.print(tabellaRiparazioni[riparazione][0]+ " ");
-                    System.out.print(tabellaRiparazioni[riparazione][1]+ " ");
-                    continue outer;
+
+    public String[] showMaxPriority(){
+        int maxR = Integer.MIN_VALUE;
+        String ind;
+        String num;
+        String pri;
+
+        outer : for(int r=0; r<tabellaRiparazioni.length; r++) {
+            for (int c = 0; c < tabellaRiparazioni[r].length; c++) {
+                if (tabellaRiparazioni[r][2].equals("1")) {
+                    maxR = r;
+                    break outer;
                 }
             }
-            System.out.println();
         }
-    }
+        ind = tabellaRiparazioni[maxR][0];
+        num = tabellaRiparazioni[maxR][1];
+        pri = tabellaRiparazioni[maxR][2];
+        String[] arrayMax = {ind, num, pri};
 
+        return arrayMax;
+    }
 
 }

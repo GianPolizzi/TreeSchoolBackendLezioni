@@ -1,5 +1,6 @@
 package lez_7.archivio_riparazioni;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -51,7 +52,7 @@ public class Main {
                     break;
                 case 3:
                     System.out.println("Riparazioni con priorità MAX");
-                    rip.controllaPrioritaMax();
+                    System.out.println(Arrays.toString(rip.showMaxPriority()));
                     break;
                 case 4:
                     System.out.println("Digitare nome del tecnico: ");
