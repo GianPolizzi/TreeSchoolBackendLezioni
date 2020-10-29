@@ -4,23 +4,58 @@ import java.util.Arrays;
 
 public class ListaOrdinata {
 
-    private int[] lista;
+    private Integer[] lista;
+    private int count = 0;
 
-    public ListaOrdinata(int[] arrayLista){
+    public ListaOrdinata(Integer[] arrayLista){
         this.lista = arrayLista;
     }
 
-    public int getLista(){
-        return lista[lista.length-1];
+    public void showLista(Integer[] array){
+        System.out.println(Arrays.toString(array));
     }
 
-    public void insertLista(int elem){
+    public void espandiLista(){
+        Integer[] arrayEsp = new Integer[lista.length * 2];
+        for(int i=0; i<count; i++){
+            arrayEsp[i] = lista[i];
+        }
+        lista = arrayEsp;
+    }
+
+    public void insertLista(int newElem){
+        if(count == lista.length){
+            System.out.println("Devo espandere la lista!");
+            espandiLista();
+            System.out.println(Arrays.toString(lista));
+        }
+        boolean presente = false;
         for(int i=0; i<lista.length; i++){
-            if(lista[i] == 0){
-                elem = lista[i];
+            if(lista[i] == null){
+                lista[i] = newElem;
+                presente = true;
+                count++;
+                System.out.println("L'elemento è stato inserito!");
+                break;
+            }
+            else if(newElem < lista[i]){
+                for(int j=lista.length-1; j>i; j--){
+                    //Sposto a destra l'array
+                    lista[j] = lista[j-1];
+                }
+            //Inserisco l'elemento nuovo
+            lista[i] = newElem;
+            System.out.println("L'elemento è stato inserito (Array ordinato)!");
+            presente = true;
+            count++;
+            break;
             }
         }
+        if(!presente){
+            System.out.println("LISTA PIENA! L'elemento non può essere inserito!");
+        }
     }
+
 
     public void indexOf(int elem){
 

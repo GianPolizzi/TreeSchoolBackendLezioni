@@ -7,14 +7,14 @@ public class Main {
 
     public static void main(String[] args){
 
-        int numElem;
+        int numElemLista;
         int newElem;
         int scelta = 10;
         Scanner sc = new Scanner(System.in);
         Scanner sc1 = new Scanner(System.in);
         System.out.println("Quanti elementi vuoi inserire nella lista?");
-        numElem = sc.nextInt();
-        int[] arrayNumeri = new int[numElem];
+        numElemLista = sc.nextInt();
+        Integer[] arrayNumeri = new Integer[numElemLista];
 
         ListaOrdinata lista = new ListaOrdinata(arrayNumeri);
 
@@ -35,9 +35,11 @@ public class Main {
                     System.out.println("Digitare elemento da inserire: ");
                     newElem = sc1.nextInt();
                     lista.insertLista(newElem);
+
                     break;
                 case 2:
-
+                    System.out.println("Lista completa: ");
+                    lista.showLista(arrayNumeri);
                     break;
                 case 3:
 
@@ -51,21 +53,14 @@ public class Main {
                     break;
                 case 6:
                     break;
+                case 0:
+                    scelta = 0;
+                    break;
                 default:
-                    System.out.println("*** FINE PROGRAMMA ***");
+                    System.out.println("Comando non esistente!");
             }
         }
-
-
-
-        for(int j=0; j<arrayNumeri.length; j++){
-            System.out.println("Inserire elemento ["+j+"]");
-            arrayNumeri[j] = sc.nextInt();
-        }
-
-        System.out.println("Stampa lista disordinata: ");
-        System.out.println(Arrays.toString(arrayNumeri));
-
+        System.out.println("*** FINE PROGRAMMA ***");
     }
 
 }

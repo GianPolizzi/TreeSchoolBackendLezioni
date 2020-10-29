@@ -14,7 +14,6 @@ public class Main {
         numElem = sc.nextInt();
         int[] arrayNumeri = new int[numElem];
 
-        //MaxMin[] arrayMaxMin = new MaxMin(numElem);
 
         for(int j=0; j<arrayNumeri.length; j++){
             System.out.println("Inserire elemento ["+j+"]");
@@ -25,9 +24,7 @@ public class Main {
         System.out.println(Arrays.toString(arrayNumeri));
 
         MaxMin estremi = new MaxMin(arrayNumeri);
-        estremi.mergeSort(arrayNumeri);
+        estremi.minMaxRicorsivo(arrayNumeri);
 
-        System.out.println("Elemento MAX = "+estremi.getMax());
-        System.out.println("Elemento Min = "+estremi.getMin());
     }
 }

@@ -10,7 +10,7 @@ public class Tecnico extends DittaRiparazioni{
             cognome,
     };
 
-    
+    Object[][] listaTecnici;
     //String[][] listaTecnici = new String[10][2];
 
     public String[] getTecnico() {

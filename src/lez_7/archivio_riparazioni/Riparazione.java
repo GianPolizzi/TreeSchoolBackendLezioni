@@ -83,7 +83,6 @@ public class Riparazione extends DittaRiparazioni{
         String ind;
         String num;
         String pri;
-
         outer : for(int r=0; r<tabellaRiparazioni.length; r++) {
             for (int c = 0; c < tabellaRiparazioni[r].length; c++) {
                 if (tabellaRiparazioni[r][2].equals("1")) {
@@ -96,8 +95,6 @@ public class Riparazione extends DittaRiparazioni{
         num = tabellaRiparazioni[maxR][1];
         pri = tabellaRiparazioni[maxR][2];
         String[] arrayMax = {ind, num, pri};
-
         return arrayMax;
     }
-
 }
