@@ -9,9 +9,13 @@ public class Main {
 
         int numElemLista;
         int newElem;
+        int elemCercato;
+        int elemDaEliminare;
         int scelta = 10;
         Scanner sc = new Scanner(System.in);
         Scanner sc1 = new Scanner(System.in);
+        Scanner sc2 = new Scanner(System.in);
+        Scanner sc3 = new Scanner(System.in);
         System.out.println("Quanti elementi vuoi inserire nella lista?");
         numElemLista = sc.nextInt();
         Integer[] arrayNumeri = new Integer[numElemLista];
@@ -22,9 +26,8 @@ public class Main {
             System.out.println("\n*** LISTA ORDINATA ***\n");
             System.out.println("1 - Inserire un nuovo elemento");
             System.out.println("2 - Mostra la lista");
-            System.out.println("3 - Inserisci elemento");
-            System.out.println("4 - Ricerca");
-            System.out.println("5 - Elimina elemento");
+            System.out.println("3 - Ricerca tramite elemento");
+            System.out.println("4 - Elimina elemento");
             System.out.println("0 - ESCI");
 
             System.out.println("\nSeleziona un'operazione");
@@ -35,23 +38,20 @@ public class Main {
                     System.out.println("Digitare elemento da inserire: ");
                     newElem = sc1.nextInt();
                     lista.insertLista(newElem);
-
                     break;
                 case 2:
                     System.out.println("Lista completa: ");
-                    lista.showLista(arrayNumeri);
+                    lista.showLista();
                     break;
                 case 3:
-
+                    System.out.println("Inserire elemento da ricercare: ");
+                    elemCercato = sc2.nextInt();
+                    lista.indexOf(elemCercato);
                     break;
                 case 4:
-
-                    break;
-                case 5:
-                    //IndexOF e sposto l'array di un elemento indietro
-
-                    break;
-                case 6:
+                    System.out.println("Inserire elemento da eliminare: ");
+                    elemDaEliminare = sc3.nextInt();
+                    lista.remove(elemDaEliminare);
                     break;
                 case 0:
                     scelta = 0;

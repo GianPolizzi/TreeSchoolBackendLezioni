@@ -11,8 +11,10 @@ public class ListaOrdinata {
         this.lista = arrayLista;
     }
 
-    public void showLista(Integer[] array){
-        System.out.println(Arrays.toString(array));
+    public void showLista(){
+        for(int i=0; i<lista.length; i++){
+            System.out.println("Elemento ["+i+"] = "+lista[i]);
+        }
     }
 
     public void espandiLista(){
@@ -25,9 +27,8 @@ public class ListaOrdinata {
 
     public void insertLista(int newElem){
         if(count == lista.length){
-            System.out.println("Devo espandere la lista!");
+            System.out.println("Espando la lista!");
             espandiLista();
-            System.out.println(Arrays.toString(lista));
         }
         boolean presente = false;
         for(int i=0; i<lista.length; i++){
@@ -35,7 +36,8 @@ public class ListaOrdinata {
                 lista[i] = newElem;
                 presente = true;
                 count++;
-                System.out.println("L'elemento è stato inserito!");
+                System.out.println("L'elemento "+lista[i]+" è stato inserito!");
+                System.out.println("Contatore = "+count);
                 break;
             }
             else if(newElem < lista[i]){
@@ -56,65 +58,56 @@ public class ListaOrdinata {
         }
     }
 
+    public int indexOf(int elem){
+        System.out.println("\nRicerco l'elemento......");
+        return ricercaBin(lista, elem, 0, lista.length-1);
+    }
 
-    public void indexOf(int elem){
 
+    private static int ricercaBin(Integer[] array, int elem, int inizio, int fine){
+        //Se l'elemento non viene trovato
+        if(inizio > fine){
+            System.out.println("Elemento: "+elem+ " inesistente!");
+            return -1;
+        }
+        //Divido in 2 parti l'array
+        int centro = (inizio + fine)/2;
+        //Se l'elemento centrale = elemento cercato
+        if(array[centro] == elem){
+            System.out.println("Elemento: "+elem+" trovato alla posizione ["+centro+"]");
+            return centro;
+        }
+
+        if(array[centro] < elem){
+            return ricercaBin(array, elem, centro+1, fine);
+        }
+        else{
+            return  ricercaBin(array, elem, inizio, centro-1);
+        }
     }
 
     public void remove(int elem){
-
-    }
-
-    //Algoritmo ricorsivo complessità O(n*log(n))
-    public int[] mergeSort(int[] arr){
-        //Se l'array ha un solo elemento è gia ordinato
-        if(arr.length == 1){
-            return arr;
-        }
-        //Funzioni ricorsive
-        int[] arrayDestro = mergeSort(dividiArray(arr,arr.length/2, arr.length));
-
-        int[] arraySinistro = mergeSort(dividiArray(arr,0, arr.length/2));
-
-        return unisciArray(arrayDestro, arraySinistro);
-    }
-
-    private static int[] dividiArray(int[] a, int inizio, int fine){
-        int[] nuovoArray = new int[fine - inizio];
-
-        for(int i=0; i<nuovoArray.length; i++){
-            nuovoArray[i] = a[inizio+i];
-        }
-        System.out.println("Funzione dividi: "+ Arrays.toString(nuovoArray));
-        return nuovoArray;
-    }
-
-    private static  int[] unisciArray(int[] a1, int[] a2){
-        int[] arrayUnito = new int[a1.length + a2.length];
-        int i=0;
-        int j=0;
-        while(i<a1.length && j<a2.length){
-            if(a1[i]<a2[j]){
-                arrayUnito[i+j] = a1[i];
-                i++;
-            }
-            else{
-                arrayUnito[i+j] = a2[j];
-                j++;
+        int limite = 0;
+        boolean trovato = false;
+        for(int i=0; i<lista.length; i++){
+            if(elem == lista[i]){
+                trovato = true;
+                limite = i;
+                lista[i] = null;
+                System.out.println("Elemento "+elem+" eliminato!");
+                count--;
+                break;
             }
         }
-        if(i<a1.length){
-            for(int k=i; k<a1.length; k++){
-                arrayUnito[k+j] = a1[k];
+        if(trovato){
+            for(int j=limite+1; j<lista.length; j++){
+                System.out.println("Prima di spostare"+lista[j-1]);
+                //Sposto a sinistra l'array
+                lista[j-1] = lista[j];
+                System.out.println("Dopo aver spostato"+lista[j-1]);
             }
+            //Pongo l'ultimo elemento = null;
+            lista[lista.length-1] = null;
         }
-        if(j<a2.length){
-            for(int k=j; k<a2.length; k++){
-                arrayUnito[k+i] = a2[k];
-            }
-        }
-        System.out.println(Arrays.toString(arrayUnito));
-        return arrayUnito;
     }
-
 }
