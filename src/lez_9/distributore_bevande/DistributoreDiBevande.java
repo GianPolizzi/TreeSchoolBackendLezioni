@@ -6,7 +6,6 @@ public class DistributoreDiBevande {
     private double saldo = 0.0;
     private double resto = 0.0;
     Prodotto[] arrayProdotti;
-    Prodotto p1;
 
 
     public DistributoreDiBevande(int capacitaDistributore) {
