@@ -36,7 +36,7 @@ public class Scacchiera {
                 setGiocatore();
             }
             else{
-                inserisciPedina(getGiocatore(), row, col);
+                inserisciPedina(getGiocatore(), row-1, col-1);
                 mostraScacchiera(scacchiera);
             }
         }
