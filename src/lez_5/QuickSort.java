@@ -3,6 +3,18 @@ package lez_5;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Algoritmo ricorsivo "Dividi et Impera"
+ * 1-Scelgo un elemento p (pivot) dell'array e lo divido in 2 parti considerando gli elementi <=p e >p;
+ * 2-Ordino ricorsivamente le 2 parti;
+ * 3-Ripeto la (1) e (2) fino a quando il primo elemento del nuovo array sarà < dell'ultimo;
+ * 4-Restituisco il risultato concatenando le 2 parti ordinate di ogni array;
+ *
+ * Complessità dipende dal PARTITION
+ * - caso peggiore : O(n^2)
+ * - caso migliore : O( n * log(n) )
+ */
+
 public class QuickSort {
 
     public static void main(String[] args) {

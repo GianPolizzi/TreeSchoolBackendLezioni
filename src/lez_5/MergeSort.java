@@ -3,6 +3,18 @@ package lez_5;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Algoritmo ricorsivo "Dividi et Impera" più complesso ma molto efficiente
+ * A differenza del QuickSort richiede molto più spazio in memoria ma richiede sempre meno tempo
+ *
+ * 1-Divido l'array in 2 parti uguali (senza permutare);
+ * 2-Ordino ricorsivamente le 2 parti;
+ * 3-Ripeto la (1) e (2) fino a quando i vari array formati non saranno ordinati;
+ * 4-Fondo (Merge) le 2 parti ordinate di ogni array;
+ *
+ * Complessità : T(n) = 2T(n/2) + O(n) = O(n * log(n) )
+ */
+
 public class MergeSort {
 
     public static void main(String[] args) {
@@ -21,6 +33,7 @@ public class MergeSort {
         mergeSort(array);
     }
 
+    //Metodo principale (ricorsivo)-> Complessità logaritmica : O(n*log(n))
     private static int[] mergeSort(int[] arr){
         //Se l'array ha un solo elemento è gia ordinato
         if(arr.length == 1){
@@ -34,6 +47,7 @@ public class MergeSort {
         return unisciArray(arrayDestro, arraySinistro);
     }
 
+    //DIVIDI ARRAY
     private static int[] dividiArray(int[] a, int inizio, int fine){
         int[] nuovoArray = new int[fine - inizio];
 
@@ -44,6 +58,7 @@ public class MergeSort {
         return nuovoArray;
     }
 
+    //MERGE (Fusione) Complessità lineare : O(n)
     private static  int[] unisciArray(int[] a1, int[] a2){
         int[] arrayUnito = new int[a1.length + a2.length];
         int i=0;

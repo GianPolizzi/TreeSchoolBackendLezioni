@@ -3,6 +3,24 @@ package lez_5;
 import java.util.Arrays;
 import java.util.Scanner;
 
+/**
+ * Algoritmo di ordinamento semplice che fa emergere per primi in numeri maggiori dell'array (come le bolle)
+ *
+ * 1-Confronto il primo elemento con il secondo
+ * 2-Se primo > secondo inverte i 2 elementi
+ * 3-Operazione ripetuta N-1 volte fino a portare l'elemento maggiore a destra dell'array;
+ * 4-Si mette un segnale per non conteggiare più l'ultimo elemento che è già ordinato;
+ * 5-Si ripetono i passi (1) (2) (3) (4) fino ad ordinare tutti gli elementi
+ *
+ * COMPLESSITA' PER NUMERO DI CONFRONTI
+ * - caso peggiore e medio : O(n^2)
+ * - caso migliore : O(n)               [vettore parzialmente ordinato]
+ *
+ * COMPLESSITA' PER SCAMBI
+ * - caso peggiore e medio : O(n^2)
+ * - caso migliore : O(1)
+ */
+
 public class BubbleSort {
 
     public static void main(String[] args) {
