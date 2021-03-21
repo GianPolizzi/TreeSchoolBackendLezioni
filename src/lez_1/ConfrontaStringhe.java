@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class ConfrontaStringhe {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.print("Inserire sringa 1: ");
+        System.out.print("Inserire stringa 1: ");
         String a = sc.nextLine();
         System.out.print("Inserire stringa 2: ");
         String b = sc.nextLine();
