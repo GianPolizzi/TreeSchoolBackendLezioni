@@ -35,7 +35,7 @@ public class InvioMessaggi {
     public static void main(String[] args) {
         InvioMessaggi ms = new InvioMessaggi();
 
-        // Predicates
+        // Predicates (Lambda)
         Predicate<Persona> allGiovaniDonne = p -> p.getSesso().equals("F") && p.getEta() > 17 && p.getEta() < 30;
         Predicate<Persona> allMaschi = p -> p.getSesso().equals("M");
         Predicate<Persona> allStranieri = p -> !p.getNazionalita().equals("italiana");

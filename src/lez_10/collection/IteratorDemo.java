@@ -2,13 +2,22 @@ package lez_10.collection;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.ListIterator;
 
+/**
+ * ITERATOR
+ * In Java, un Iterator è un costrutto utilizzato per attraversare o scorrere la raccolta.
+ * Per utilizzare un iteratore, è necessario ottenere l'oggetto iteratore utilizzando il metodo iterator()
+ * dell'interfaccia di raccolta.
+ * Java Iterator è un'interfaccia del framework di raccolta e fa parte del package java.util.
+ * Utilizzando Java Iterator è possibile iterare attraverso la raccolta di oggetti.
+ */
 public class IteratorDemo {
 
-    public static void main(String args[]) {
+    public static void main(String[] args) {
         // Creo un array list
-        ArrayList lettere = new ArrayList();
+        List<Object> lettere = new ArrayList<>();
 
         // aggiungo elementi all'array list
         lettere.add("C");
