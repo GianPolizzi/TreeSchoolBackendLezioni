@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 
 public class StreamDemo {
 
-    // Definisco una Lista di Stringe (colori)
+    // Definisco una Lista di Stringhe (colori)
     public static List<String> listaColori = new ArrayList<String>();
 
     // Definisco uno stream per la lista colori precedente
