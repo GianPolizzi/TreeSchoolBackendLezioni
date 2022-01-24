@@ -20,8 +20,20 @@ public class Mappe {
         mappa.put(3, "Bassa priorità");
     }
 
+    /**
+     * Scorri Mappa
+     */
+    public static void showMappa(Map<Integer,String> mappa){
+        System.out.println("Mappa priorità");
+        for(Map.Entry<Integer,String> elem : mappa.entrySet()){
+            System.out.println("Key (codice) = " + elem.getKey() + ", Value (descrizione) = " + elem.getValue());
+        }
+    }
+
     public static void main(String[] args){
         System.out.println("***** MAP *****");
         Map<Integer, String> mappa = new HashMap<Integer, String>();
+        aggiungiElemMappa(mappa);
+        showMappa(mappa);
     }
 }
